@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%- include('./layout/head.ejs'); %>
+</head>
+<body>
+  <%- include('./layout/bodyMenu.ejs'); %>
+  <div style="width: 850px; float:left;  " >  
+     
+    <h1>Title: <%= book.title %> </h1>
+    
+    <p><strong>Author: </strong>
+      <a href="book.author.url">
+        <%= book.author.name %>
+      </a>
+    </p>
+    <p><strong>Summary: </strong>
+      <%= book.summary %>
+    </p>
+    <p><strong>ISBN: </strong>
+      <%= book.isbn %>
+    </p>
+    <p><strong>Genre: </strong>&nbsp</p>
+    <% for (i=0; i< book.genre.length; i++) { %>
+      <a href="book.genre[i].url">book.genre[i].name</a>
+
+    <% } %> 
+      <% if i < book.genre.length-1 %>
+      
+      
+      <div style='margin-left:20px;margin-top:20px'>
+        
+      <h4>Copies</h4>
+      <% for (j=0; j< book_instance.length; j++) { %>
+        <hr>
+        <% if (val[i].status == 'Available') { %>
+          <p class=.text-success >
+            <%= val[i].status %>
+          </p>
+        <% } else if (val[i].value == 'Maintenance') { %>
+            <p class=.text-warning >
+              <%= val[i].status %>
+            </p>
+            <p><strong>Imprint: </strong>
+              <%= val[i].imprint %>
+            </p>
+
+        <% } %>
+
+        <% if (val[i].status != 'Available') { %>
+          <p><strong>Due back: </strong>
+            <%= val[i].due_back %>
+          </p>
+          <p><strong>Id: </strong>&nbsp
+            <a href="val.url"></a>
+            <%= val[i]._id %>
+          </p>
+        <% } else { %>
+          <p>There are no copies of this bookin the library</p>
+        <% } %>
+
+      </div>
+
+
+    <% } %>
+
+    <h1 style=" margin-inline-start: -20px; ">    Genre: <%= genre.name %></h1>
+
+    <h4>Books</h4>
+    <dt>
+    <% for (i=0; i< genre_books.length; i++) { %>
+     
+      <a href= <%= genre_books[0].url %> > 
+        <%= genre_books[i].title %>
+      </a>
+      <dd style="
+      margin-inline-start: 0px; "> 
+        <%= genre_books[i].summary %>
+      </dd>
+    
+    <% } %>
+  </dt>
+  </div> 
+</body>
+</html>    
+   
