@@ -18,10 +18,10 @@ var nconf = require('nconf');
 // nconf.argv().env().file({ file: 'config.json' });
 nconf.argv()
    .env()
-   .file({ file: './config/config.json' });
+   .file({ file: './library1106b/config.json' });
 
-console.log('nconf.get: ' + nconf.get("DB_USER"));
-console.log('nconf.get: ' + nconf.get("DB_PASSWORD"));
+// console.log('nconf.get: ' + nconf.get("DB_USER"));
+// console.log('nconf.get: ' + nconf.get("DB_PASSWORD"));
 
 
 var app = express();
